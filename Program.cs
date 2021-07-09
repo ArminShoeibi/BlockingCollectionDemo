@@ -14,7 +14,7 @@ namespace BlockingCollectionDemo
 
             IEnumerable<int> fromOneToTwentyFiveThousand = Enumerable.Range(1, 25000);
 
-            Task firstEnqueuingTask = Task.Run(async () =>
+            Task firstEnqueuingTask = Task.Run(() =>
            {
                foreach (var number in fromOneToTwentyFiveThousand)
                {
@@ -25,7 +25,7 @@ namespace BlockingCollectionDemo
                numbersBlockingCollection.CompleteAdding();
            });
 
-            Task firstDequeuingTask = Task.Run(async () =>
+            Task firstDequeuingTask = Task.Run(() =>
             {
                 foreach (var number in numbersBlockingCollection.GetConsumingEnumerable())
                 {
